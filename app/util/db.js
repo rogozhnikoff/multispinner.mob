@@ -2,23 +2,23 @@ function fixtures(tools, moves){
   var list = {
     tools: [
       {
-        id: 1,
+        id: "1",
         name: "Пои",
         movesAmount: "5"
       },{
-        id: 2,
+        id: "2",
         name: "Мячики",
         movesAmount: "8"
       },{
-        id: 3,
+        id: "3",
         name: "Веера",
         movesAmount: "2"
       }
     ],
     moves: [
-      {id: 1, name: "восьмерка", toolId: 1},
-      {id: 2, name: "бабочка", toolId: 1},
-      {id: 3, name: "каскад", toolId: 2}
+      {id: "1", name: "восьмерка", toolId: "1"},
+      {id: "2", name: "бабочка", toolId: "1"},
+      {id: "3", name: "каскад", toolId: "2"}
     ]
   }
 

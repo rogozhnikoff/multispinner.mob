@@ -1,0 +1,13 @@
+<form>
+  <fieldset>
+    <legend>{{#if isNew}}Добавление инструмента{{else}}Редактирование «{{tool.name}}»{{/if}}</legend>
+
+    <label>Название инструмента</label>
+    <input name="name" type="text" value="{{tool.name}}" placeholder="Например «Контактный стафф»">
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-success">Сохранить</button>
+      <!--<button class="btn btn-danger btn-mini">Удалить инструмент</button>-->
+    </div>
+  </fieldset>
+</form>
