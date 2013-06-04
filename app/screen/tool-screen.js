@@ -1,6 +1,8 @@
-define(["base/view", "text!template/tool-screen.hbs"], function (View, template) {
-  return View.extend({
+define(["base/screen", "text!template/tool-screen.hbs", "jqpp/dom/form_params"], function (Screen, template) {
+
+  return Screen.extend({
     tpl: template,
+    className: "screen screen_tool",
     events: {
       "submit": "submit"
     },
@@ -9,21 +11,14 @@ define(["base/view", "text!template/tool-screen.hbs"], function (View, template)
         tool: this.options.tool.attributes,
         isNew: this.options.tool.isNew()
       });
-
-      this.btn = this.$("button[type=submit]");
-      this.inputs = this.$(":input:not(button, input[type=submit])");
     },
-    submit: function(ev){
+    submit: function (ev) {
       ev.preventDefault();
 
-      var tool = this.options.tool, data = {};
+      // сохраняем в модель
+      this.options.tool.save(this.$("form").formParams());
 
-      this.inputs.each(function(){
-        var input = $(this);
-        data[input.attr("name")] = input.val();
-      });
-
-      tool.save(data);
+      // редиректим
       window.location.hash = "";
     }
   });

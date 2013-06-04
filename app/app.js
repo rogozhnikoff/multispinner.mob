@@ -1,5 +1,12 @@
-define(["base/view", "text!template/container.hbs"], function (View, template) {
-  return View.extend({
+define(["base/screen", "text!template/container.hbs"], function (Screen, template) {
+  $(function(){
+    var h = $(window).outerHeight();
+    var w = $(window).outerWidth();
+    $("#debug").text("высота " + h + ", ширина " + w);
+    console.log('h, w', h, w);
+  });
+
+  return Screen.extend({
     tagName: "div",
     className: "container",
     tpl: template,
@@ -19,8 +26,11 @@ define(["base/view", "text!template/container.hbs"], function (View, template) {
     },
     changeScreen: function(args){
       // чистим текущий screen
-      this.region.screen.empty();
-      delete this.screen;
+      if(typeof this.screen !== "undefined") {
+        this.screen.undelegateEvents();
+        this.screen.remove();
+        delete this.screen;
+      }
 
       // вставляем
       this.region.screen.html(args.screen.$el);

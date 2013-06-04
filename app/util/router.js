@@ -27,7 +27,6 @@ define(["screen/index-screen", "screen/moves-screen", "screen/tool-screen"], fun
       });
     },
     moves: function(toolId){
-      toolId += ""; // приводим к строке
       var moves = db.moves.where({toolId: toolId});
 
       var screen = new Moves({
@@ -39,8 +38,6 @@ define(["screen/index-screen", "screen/moves-screen", "screen/tool-screen"], fun
       });
     },
     toolEdit: function(toolId){
-      toolId += ""; // приводим к строке
-
       var tool = (toolId === "new")
         // для нового, создаем временную модель
         ? db.tools.push({})

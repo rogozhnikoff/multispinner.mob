@@ -7,7 +7,8 @@ requirejs.config({
     handlebars: "vendor/handlebars-1.0.rc.4",
     text: "vendor/require-text-2.0.6",
     localstorage: "vendor/backbone-plugin/backbone.localstorage",
-    bootstrap: "vendor/bootstrap/"
+    bootstrap: "vendor/bootstrap/",
+    jqpp: "vendor/jquerypp/"
   },
   shim: {
     underscore: {
