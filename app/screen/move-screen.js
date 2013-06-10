@@ -1,4 +1,4 @@
-define(["base/screen", "text!template/move-screen.hbs", "jqpp/dom/form_params", "moment", "ui"], function (Screen, template) {
+define(["base/screen", "text!template/move-screen.hbs", "part/radio", "jqpp/dom/form_params", "ui"], function (Screen, template, Radio) {
 
   return Screen.extend({
     tpl: template,
@@ -27,6 +27,11 @@ define(["base/screen", "text!template/move-screen.hbs", "jqpp/dom/form_params", 
       });
 
       this.timeSlider();
+
+      var parts = this.parts;
+      this.$(".radioCtrl").each(function(){
+        parts.push(new Radio({el: $(this)}));
+      });
     },
     timeSlider: function(){
       var slider = this.$(".js-slider__el"),

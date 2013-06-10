@@ -26,6 +26,8 @@
  /* BUTTON PUBLIC CLASS DEFINITION
   * ============================== */
 
+  var radioCallback;
+
   var Button = function (element, options) {
     this.$element = $(element)
     this.options = $.extend({}, $.fn.button.defaults, options)
@@ -58,6 +60,9 @@
       .removeClass('active')
 
     this.$element.toggleClass('active')
+    if(typeof radioCallback === "function") {
+      radioCallback({el: this.$element});
+    }
   }
 
 
@@ -74,6 +79,10 @@
       if (!data) $this.data('button', (data = new Button(this, options)))
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
+
+      if(typeof option === "function") {
+        radioCallback = option;
+      }
     })
   }
 

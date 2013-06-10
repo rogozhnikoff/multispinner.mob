@@ -4,7 +4,7 @@ define(["base/model"], function (Model) {
       name: "",
       description: "",
       toolId: null,
-      type: null, // "move" || "pack"
+      type: "move", // "move" || "pack"
       know: null, // true || false
       time: 0, // требуемое время
       timeTracked: 0, // оттреканное время

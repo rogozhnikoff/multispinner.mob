@@ -12,23 +12,21 @@
       <textarea name="description" id="description">{{move.description}}</textarea>
     </div>
 
-    <hr>
-
-    <div class="control-group">
-      <label class="control-label">Движение или связка</label>
-      <label for="type.move" class="radio inline"><input type="radio" name="type" id="type.move" value="move" {{#if type.isMove}}checked{{/if}} /> Движение</label>
-      <label for="type.pack" class="radio inline"><input type="radio" name="type" id="type.pack" value="pack" {{#if type.isPack}}checked{{/if}}/> Связка</label>
+    <div class="control-group radioCtrl">
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" data-value="move" class="btn{{#if type.isMove}} active{{/if}}">Движение</button>
+        <button type="button" data-value="pack" class="btn{{#if type.isPack}} active{{/if}}">Связка</button>
+      </div>
+      <input name="type" type="hidden" />
     </div>
 
-    <hr>
-
-    <div class="control-group">
-      <label class="control-label">Статус</label>
-      <label for="know.learn" class="radio inline"><input type="radio" name="know" id="know.learn" value="learn" {{#if know.isLearn}}checked{{/if}} /> На изучении</label>
-      <label for="know.work" class="radio inline"><input type="radio" name="know" id="know.work" value="work" {{#if know.isWork}}checked{{/if}}/> На отработке</label>
+    <div class="control-group radioCtrl">
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" data-value="learn" class="btn{{#if know.isLearn}} active{{/if}}">На изучении</button>
+        <button type="button" data-value="work" class="btn{{#if know.isWork}} active{{/if}}">На отработке</button>
+      </div>
+      <input name="know" type="hidden" />
     </div>
-
-    <hr>
 
     <div class="control-group sourceHelper">
       <label class="control-label" for="source">Источник</label>

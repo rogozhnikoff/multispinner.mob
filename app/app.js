@@ -27,9 +27,7 @@ define(["base/screen", "text!template/container.hbs"], function (Screen, templat
     changeScreen: function(args){
       // чистим текущий screen
       if(typeof this.screen !== "undefined") {
-        this.screen.undelegateEvents();
-        this.screen.remove();
-        delete this.screen;
+        this.screen.destroy();
       }
 
       // вставляем
