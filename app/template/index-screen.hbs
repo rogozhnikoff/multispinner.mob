@@ -1,8 +1,8 @@
 <h4>Инструменты:</h4>
-<ul>
+<div class="items">
   {{#each tools}}
-  <li><a href="#moves/{{this.id}}">{{this.name}}</a> - {{movesAmount}} - <a href="#tool/{{this.id}}">редактировать</a>
+    <div class="item" data-href="#moves/{{this.id}}">{{this.name}} - {{movesAmount}} - <a href="#tool/{{this.id}}">редактировать</a></div>
   {{/each}}
-</ul>
+</div>
 
 <a class="btn btn-mini" href="#tool/new">Добавить</a>

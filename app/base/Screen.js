@@ -4,6 +4,21 @@ define(["backbone", "handlebars"], function (Backbone, Handlebars) {
     callback: function (method) {
       return _.bind(this[method], this);
     },
+    initialize: function(){
+      this.delegateEvents(_(this.events || {}).extend({
+        "click .item": "itemClick"
+      }).value());
+
+      this.init();
+    },
+    itemClick: function (ev) {
+      var target = $(ev.target);
+      console.log('fuck', target);
+      // TODO: wtf this?!
+      if (!target.is("a") && !target.closest(".btn").length) {
+        window.location.hash = target.closest(".item").data("href");
+      }
+    },
 
     // пустой темплейт, на всякий пожарный
     tpl: "oops, something broken =(",

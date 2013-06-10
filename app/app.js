@@ -1,10 +1,10 @@
 define(["base/screen", "text!template/container.hbs"], function (Screen, template) {
-  $(function(){
+  /*$(function(){
     var h = $(window).outerHeight();
     var w = $(window).outerWidth();
     $("#debug").text("высота " + h + ", ширина " + w);
     console.log('h, w', h, w);
-  });
+  });*/
 
   return Screen.extend({
     tagName: "div",

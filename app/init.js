@@ -8,7 +8,9 @@ requirejs.config({
     text: "vendor/require-text-2.0.6",
     localstorage: "vendor/backbone-plugin/backbone.localstorage",
     bootstrap: "vendor/bootstrap/",
-    jqpp: "vendor/jquerypp/"
+    ui: "vendor/jquery-ui-1.9.2.custom",
+    jqpp: "vendor/jquerypp/",
+    moment: "vendor/moment/moment"
   },
   shim: {
     underscore: {
@@ -20,6 +22,12 @@ requirejs.config({
     },
     handlebars: {
       exports: "Handlebars"
+    },
+    ui: {
+      deps: ["jquery"]
+    },
+    moment: {
+      moment: ["vendor/moment/ru"]
     }
   },
 
@@ -27,7 +35,7 @@ requirejs.config({
   urlArgs: "bust=" +  (new Date()).getTime()
 });
 
-require(["app", "util/db", "util/router"], function (App, Database, Router) {
+require(["app", "util/db", "util/router", "util/helpers", "jquery"], function (App, Database, Router) {
   window.db = new Database;
 
   window.app = new App;

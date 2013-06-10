@@ -1,8 +1,19 @@
-<h4>Движения:</h4>
-<ul>
+<h4>Движения по инструменту «{{toolName}}»:</h4>
+<div class="items">
   {{#each moves}}
-  <li><a href="#fuck/{{id}}">{{name}}</a> - {{movesAmount}} - <a href="#toolEdit/{{id}}">редактировать</a>
+  <div class="item move {{#if isOver}}move_status_ready{{/if}}" data-href="#move/{{toolId}}/{{id}}" data-move-id="{{this.id}}">
+    <div class="move__info">
+      <h5 class="move__name">{{name}} <small>(осталось {{timeDiff}} минут)</small>
+        <div class="move__icon"><i class="icon-thumbs-{{#if know}}up{{else}}down{{/if}}"></i></div></h5>
+      {{#if description}}<p class="move__desc">{{description}}</p>{{/if}}
+    </div>
+    <i class="move__progress" style="width: {{timePercent}}%"></i>
+    {{#if time}}
+    <span class="btn move__track no-item"><i class="icon-plus"></i></span>
+    {{/if}}
+  </div>
   {{else}}
-  <li>нэт двишения, насяльника ((
+  <div class="item">нэт двишения, насяльника ((</div>
   {{/each}}
-</ul>
+</div>
+<a class="btn" href="#move/{{this.toolId}}/new">добавить</a>

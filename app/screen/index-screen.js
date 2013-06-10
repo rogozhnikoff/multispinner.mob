@@ -2,7 +2,7 @@ define(["base/screen", "text!template/index-screen.hbs"], function (Screen, temp
   return Screen.extend({
     tpl: template,
     className: "screen screen_index",
-    initialize: function () {
+    init: function () {
       this.render({tools: this.options.tools.getData()});
     }
   });

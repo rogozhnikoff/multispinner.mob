@@ -6,7 +6,7 @@ define(["base/screen", "text!template/tool-screen.hbs", "jqpp/dom/form_params"],
     events: {
       "submit": "submit"
     },
-    initialize: function () {
+    init: function () {
       this.render({
         tool: this.options.tool.attributes,
         isNew: this.options.tool.isNew()

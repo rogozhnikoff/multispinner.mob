@@ -1,0 +1,55 @@
+<form>
+  <fieldset class="fieldset">
+    <legend>{{#if isNew}}Добавление движения{{else}}Редактирование «{{move.name}}»{{/if}} <div class="label pull-right">{{toolName}}</div></legend>
+
+    <div class="control-group">
+      <label class="control-label" for="name">Название движения</label>
+      <input name="name" id="name" type="text" value="{{move.name}}" placeholder="Например «Каскад»">
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="description">Описание движения</label>
+      <textarea name="description" id="description">{{move.description}}</textarea>
+    </div>
+
+    <hr>
+
+    <div class="control-group">
+      <label class="control-label">Движение или связка</label>
+      <label for="type.move" class="radio inline"><input type="radio" name="type" id="type.move" value="move" {{#if type.isMove}}checked{{/if}} /> Движение</label>
+      <label for="type.pack" class="radio inline"><input type="radio" name="type" id="type.pack" value="pack" {{#if type.isPack}}checked{{/if}}/> Связка</label>
+    </div>
+
+    <hr>
+
+    <div class="control-group">
+      <label class="control-label">Статус</label>
+      <label for="know.learn" class="radio inline"><input type="radio" name="know" id="know.learn" value="learn" {{#if know.isLearn}}checked{{/if}} /> На изучении</label>
+      <label for="know.work" class="radio inline"><input type="radio" name="know" id="know.work" value="work" {{#if know.isWork}}checked{{/if}}/> На отработке</label>
+    </div>
+
+    <hr>
+
+    <div class="control-group sourceHelper">
+      <label class="control-label" for="source">Источник</label>
+      <input name="source" id="source" type="text" value="{{move.source}}" placeholder="Например «Мэл»">
+      {{#if sourceHelper}}
+        <span class="help-block">Например:
+        {{#tagList sourceHelper}}{{body}}{{/tagList}}
+        </span>
+      {{/if}}
+    </div>
+
+    <div class="control-group js-slider">
+      <label class="control-label" for="time">Время на тренировку: <span class="badge"><span>{{move.time}}</span> минут</span></label>
+      <div class="js-slider__el"></div>
+      <input type="hidden" name="time" id="time" value="{{move.time}}" />
+    </div>
+
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-success">Сохранить</button>
+      <!--<button class="btn btn-danger btn-mini">Удалить инструмент</button>-->
+    </div>
+  </fieldset>
+</form>
