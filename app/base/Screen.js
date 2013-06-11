@@ -15,8 +15,7 @@ define(["backbone", "handlebars"], function (Backbone, Handlebars) {
     },
     itemClick: function (ev) {
       var target = $(ev.target);
-      console.log('fuck', target);
-      // TODO: wtf this?!
+      // TODO: как это переписать?
       if (!target.is("a") && !target.closest(".btn").length) {
         window.location.hash = target.closest(".item").data("href");
       }

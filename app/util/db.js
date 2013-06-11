@@ -4,15 +4,15 @@ function fixtures(tools, moves){
       {
         id: "1",
         name: "Пои",
-        movesAmount: "5"
+        movesAmount: 2
       },{
         id: "2",
         name: "Мячики",
-        movesAmount: "8"
+        movesAmount: 1
       },{
         id: "3",
         name: "Веера",
-        movesAmount: "2"
+        movesAmount: 0
       }
     ],
     moves: [

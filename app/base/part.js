@@ -1,6 +1,4 @@
 define(["backbone", "handlebars"], function (Backbone, Handlebars) {
-
-  // TODO: сделать базовую вьюху, от нее наследовать Part и Screen
   return Backbone.View.extend({
     // удобный метод для всяких jquery колбеков
     callback: function (method) {

@@ -1,5 +1,5 @@
 define(["underscore", "handlebars", "jquery"], function (_, Handlebars) {
-  Handlebars.registerHelper('tagList', function (items, options) {
+  Handlebars.registerHelper('tagList', function (items) {
     var out = "";
 
     _(items).each(function (item, i) {

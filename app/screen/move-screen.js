@@ -10,10 +10,11 @@ define(["base/screen", "text!template/move-screen.hbs", "part/radio", "jqpp/dom/
     init: function () {
       var type = this.options.move.get("type");
       var know = this.options.move.get("know");
+      this.tool = db.tools.get(this.options.toolId);
 
       this.render({
         move: this.options.move.attributes,
-        toolName: db.tools.get(this.options.toolId).get("name"),
+        toolName: this.tool.get("name"),
         isNew: this.options.move.isNew(),
         type: {
           isMove: type === "move",
@@ -53,8 +54,13 @@ define(["base/screen", "text!template/move-screen.hbs", "part/radio", "jqpp/dom/
     submit: function (ev) {
       ev.preventDefault();
 
+      var isNew = this.options.move.isNew();
+
       // сохраняем в модель
       this.options.move.save(this.$("form").formParams());
+
+      // обновляем количество в инструменте
+      if(isNew) this.tool.refreshAmount();
 
       // редиректим
       window.location.hash = "#moves/" + this.options.toolId;
